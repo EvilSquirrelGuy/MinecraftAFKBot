@@ -9,7 +9,7 @@ const fs = require("fs")
 let intentionalDisconnect = false // tracks difference between kick and asked disconnect, kinda obsolete
 // DISCORD BOT FOR MANAGEMENT
 
-const token = process.env["TOKEN"]
+const token = config.discord.token
 
 const client = new Discord.Client({
   intents: [
@@ -23,12 +23,12 @@ const client = new Discord.Client({
 
 let channel = config.discord.channel
 
-console.info = function(message) {
+console.info = function(message) { // monkey patching go brrr
   channel.send(message)
 }
 
 const botOptions = {
-    username: config.auth.email,
+    username: config.minecraft.email,
     auth: "microsoft",
     host: config.minecraft.server.host,
     port: config.minecraft.server.port,
@@ -42,9 +42,12 @@ client.on("ready", () => {
   console.log(`Logged in as ${client.user.tag}!`)
   channel = client.channels.cache.get(config.discord.channel)
 
+  serverData = fetch('https://mcapi.us/server/status?ip='+config.minecraft.host+'&port='+config.minecraft.port)
+    .then(response => response.json())
+
   client.user.setPresence({
     activities: [{
-      name: 'Waterfall Nations',
+      name: serverData.motd,
       type: 3
     }],
     status: 'dnd'

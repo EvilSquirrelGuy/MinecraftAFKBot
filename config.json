@@ -1,15 +1,14 @@
 {
   "minecraft": {
-    "controller" : "EvilSquirrelGuy",
+    "email": "EMAIL",
+    "controller": "EvilSquirrelGuy",
     "server": {
       "host": "66.59.208.33",
       "port": 25565
     }
   },
   "discord" : {
-    "channel": "1079435009741565992"
-  },
-  "auth": {
-    "email": "INSERT EMAIL FOR MICROSOFT ACCOUNT HERE"
+    "channel": "1079435009741565992",
+    "token": "TOKEN"
   }
 }
