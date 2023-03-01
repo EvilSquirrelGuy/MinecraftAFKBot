@@ -1,0 +1,16 @@
+{
+  "name": "minecraft-afk-bot",
+  "version": "0.1.0",
+  "description": "a bot for afking minecraft servers linked to a discord bot, pretty basic tho",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "minecraft",
+    "bot",
+    "afk"
+  ],
+  "author": "EvilSquirrelGuy",
+  "license": "MPL-2.0"
+}
